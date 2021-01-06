@@ -32,10 +32,10 @@ Class Prescription :
 
 Class Animal  :
  - Get : Animals -> Liste tous les animaux de la base.
- - Get AnimalsByName -> Liste les animaux contenant http://localhost:8080/animals/name/{name} dans son nom.
+ - Get AnimalsByName -> Liste les animaux contenant http://localhost:80/animals/name/{name} dans son nom.
  - POST : addAnimal -> Ajoute un animal à la base. Les Animaux ont une ID Unique. Un nouvel animal, lors de son ajout ne peut donc pas déjà exister en tant que parent d'un autre animal. On vérifie tout de même que sur l'animal qu'on ajoute, les champs ID et Parent_Id soient diférents.
- - PUT : UpdateAnimal -> Met à jour l'animal dont l'id est précisé dans : http://localhost:8080/animals/{id}. On peut vérifier la modification en listant tous les animaux ou celui-ci précisément.
- - Get : AnimalById -> Affiche l'animal précisé dans http://localhost:8080/animals/{id}.
+ - PUT : UpdateAnimal -> Met à jour l'animal dont l'id est précisé dans : http://localhost:80/animals/{id}. On peut vérifier la modification en listant tous les animaux ou celui-ci précisément.
+ - Get : AnimalById -> Affiche l'animal précisé dans http://localhost:80/animals/{id}.
  - DEL : Supprime l'animal de la base.
  
 Class Doctor  :
