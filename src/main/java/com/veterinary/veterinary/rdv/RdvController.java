@@ -4,11 +4,9 @@ import com.veterinary.veterinary.animal.Animal;
 import com.veterinary.veterinary.animal.AnimalRepository;
 import com.veterinary.veterinary.doctor.Doctor;
 import com.veterinary.veterinary.doctor.DoctorRepository;
-import com.veterinary.veterinary.prescription.Prescription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.Optional;
 
 @RestController

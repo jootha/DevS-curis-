@@ -3,7 +3,7 @@ package com.veterinary.veterinary.prescription;
 
 import com.veterinary.veterinary.animal.Animal;
 import com.veterinary.veterinary.doctor.Doctor;
-import com.veterinary.veterinary.medicine.Medicine;
+import com.veterinary.veterinary.dosage.Dosage;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,9 +22,9 @@ public class Prescription {
     private Doctor doctor;
     @ManyToOne
     private Animal animal;
-
-    @ManyToMany
-    private Set<Medicine> medicines;
+    @OneToMany
+    @JoinColumn(name = "prescription_id")
+    private Set<Dosage> dosages;
 
     public Prescription(int id, String name, Doctor doctor, Animal animal) {
         this.id = id;
@@ -65,11 +65,11 @@ public class Prescription {
         this.animal = animal;
     }
 
-    public Set<Medicine> getMedicines() {
-        return medicines;
+    public Set<Dosage> getDosages() {
+        return dosages;
     }
 
-    public void setMedicines(Set<Medicine> medicines) {
-        this.medicines = medicines;
+    public void setDosages(Set<Dosage> dosages) {
+        this.dosages = dosages;
     }
 }

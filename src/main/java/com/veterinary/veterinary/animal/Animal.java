@@ -1,6 +1,8 @@
 package com.veterinary.veterinary.animal;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -92,5 +94,12 @@ public class Animal {
 
     public void setParent_2(Animal parent_2) {
         this.parent_2 = parent_2;
+    }
+
+    public boolean isParent1Null(){
+        return parent_1 == null;
+    }
+    public boolean isParent2Null(){
+        return parent_2 == null;
     }
 }

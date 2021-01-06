@@ -1,4 +1,3 @@
-
 -- Doctors
 insert into doctor(id, firstname, lastname, address, zipcode, arrival) values (1, 'Yolande', 'Moreau', '3 rue Deschiens', '59000',TO_DATE('03/02/1974', 'DD/MM/YYYY'));
 insert into doctor(id, firstname, lastname, address, zipcode, arrival) values (2, 'Heloise', 'Letissier', '5 rue Bowie', '95360',TO_DATE('16/10/1975', 'DD/MM/YYYY'));
@@ -23,8 +22,9 @@ insert into Animal(name, race, birth, death) values ('Boby', 'chien', TO_DATE('0
 insert into Animal(name, race, birth) values ('Bill', 'chien', TO_DATE('01/05/2018', 'DD/MM/YYYY'));
 insert into Animal(name, race, birth) values ('Darius', 'chien', TO_DATE('01/05/2016', 'DD/MM/YYYY'));
 insert into Animal(name, race, birth, parent_1_id, parent_2_id) values ('Rex', 'chien', TO_DATE('01/11/2020', 'DD/MM/YYYY'), 1, 2);
-insert into Animal(name, race, birth) values ('Splat', 'rat', TO_DATE('01/02/2018', 'DD/MM/YYYY'));
-insert into Animal(name, race, birth) values ('Bring', 'rat', TO_DATE('21/11/2019', 'DD/MM/YYYY'));
+insert into Animal(name, race, birth, parent_1_id) values ('Splat', 'chien', TO_DATE('01/02/2018', 'DD/MM/YYYY'), 4);
+insert into Animal(name, race, birth) values ('Bring', 'chien', TO_DATE('21/11/2019', 'DD/MM/YYYY'));
+
 
 -- RDV
 insert into rdv(id, date, doctor_id, animal_id) values (1, '2020-05-03T14:00', 1, 1);
@@ -52,25 +52,40 @@ insert into prescription(name, doctor_id, animal_id) values ('ordo10', 3, 2);
 insert into prescription(name, doctor_id, animal_id) values ('ordo11', 3, 2);
 insert into prescription(name, doctor_id, animal_id) values ('ordo12', 4, 2);
 insert into prescription(name, doctor_id, animal_id) values ('ordo13', 5, 2);
+insert into prescription(name, doctor_id, animal_id) values ('ordo14', 5, 2);
+insert into prescription(name, doctor_id, animal_id) values ('ordo15', 5, 2);
 
--- PRESCRIPTION_MEDICINES
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (1, 6);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (1, 1);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (1, 5);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (2, 2);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (2, 9);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (3, 7);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (5, 6);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (4, 3);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (6, 6);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (6, 9);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (7, 4);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (8, 3);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (9, 9);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (9, 4);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (9, 7);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (10, 9);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (11, 3);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (11, 7);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (12, 6);
-insert into PRESCRIPTION_MEDICINES(PRESCRIPTION_ID, MEDICINES_ID) values (13, 1);
+-- Dosage
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (1, 6, 1, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (1, 1, 1, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (1, 5, 1, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (2, 2, 1, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (2, 9, 1, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (3, 7, 1, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (5, 6, 2, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (4, 3, 2, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (6, 6, 2, 2);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (6, 9, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (7, 4, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (8, 3, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (9, 9, 1, 3);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (9, 4, 1, 3);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (9, 7, 1, 3);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (10, 9, 1, 3);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (11, 3, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (11, 7, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (12, 6, 2, 1);
+insert into DOSAGE(PRESCRIPTION_ID, MEDICINE_ID, quantity, frequency) values (13, 1, 2, 1);
+
+-- authentification + role admin + user
+insert into ROLE values (1, '"ROLE_ADMIN');
+insert into ROLE values (2, 'ROLE_USER');
+
+insert into USER(num, username, password) values (1, 'Chiara', 'justPixel');
+insert into USER(num, username, password) values (2, 'Adrien', 'justPixel');
+insert into USER(num, username, password) values (3, 'Jeff', 'justPixel');
+
+insert into USER_ROLES values (1, 1),
+(2, 2),
+(1, 2),
+(3, 1);
