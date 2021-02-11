@@ -1,5 +1,7 @@
 # DevSecurise
 
+Cette API de gestion de prises de rendez-vous est destiné à un personel d'une clinique vétérinaire.
+
 Projet final de dev sécurisé par Adrien LECOMTE. Reprenant comme base le projet final de Developpement par composants.
 
 C'est une API Rest connecté à une base de donné sur H2.
@@ -13,22 +15,17 @@ docker network create web
 
 docker-compose up -d
 
+Aller sur http://localhost:80 via un navigateur. 
+
+Le dossier DOC contiens des fichier expliquants les aspects de sécurités du projet (Surface d'attaque, objectifs de sécurité, etc...)
+
 * Le projet contient un dossier API avec un fichier a importer dans Insomia. Il contient les appels a effectuer sur le projet.
 * Le fichier insomnia se trouve dans le dossier à la racine, nommé API > Insomnia_2020-12-13.json (fichier insomnia)
-* Pour s'authentifier dans l'application, utiliser l'un des comptes admins créés pour l'application :
-* Mot de passe : justPixel / Login : Chiara
+* Pour s'authentifier dans l'application, utiliser l'un des comptes admins créés pour l'application (Mot de passe : root / Login : root) Ou un compte utilisateur (user/user)
 
 ****
 
 Les Appels API sont les suivants :
-
-Class Prescription :
-  - GET : prescriptions -> Liste les ordonnances.
-  - GET : prescriptionsByName -> Liste les ordonnances dont le nom contient {name}
-  - POST : add -> Ajoute une Ordonnance /!\ ATTENTION /!\ - Cette requete doit être lancée 2 fois pour que ca fonctionne. La premiere ne fonctionne pas.
-  Il est possible de saisir la posologie -> fréquence de prise de médicament et quantité.
-  - PUT : Modifie l'ordonance. Les informations de posologie ou l'id des médicaments voir l'id de l'animal ou le docteur associé.
-  - DEL : supprime l'ordonance de la table prescription, mais aussi la posologie de la table dosage.
 
 Class Animal  :
  - Get : Animals -> Liste tous les animaux de la base.
@@ -46,13 +43,7 @@ Class Doctor  :
   - GET : DoctorById -> Affiche le docteur par son Id.
   - DEL : supprime un docteur.
   
- Class Medicine :
-   - GET : Medicines -> Liste les Médicaments.
-   - GET : MedicinesByName -> Liste les Médicaments dont le nom contient {name}.
-   - POST : addMedicine -> Ajoute un médicament. On peut préciser seulement son nom.
-   - PUT : updateMedicine -> modifie un médicament en base.
-   - GET : medicineById -> Affiche le médicaments selon son Id.
-   
+
 Class Rdv :
    - GET : rdvs: Liste tous les rendez-vous
    - GET : rdvsByDoctorId: Liste tous les rendez-vous du docteur selon son ID.
